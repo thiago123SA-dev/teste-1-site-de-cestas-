@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cestas de Café da Manhã - Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="app-container">
+        
+        <!-- ABA ESQUERDA: Carrinho / Monte sua Cesta -->
+        <aside class="cart-sidebar">
+            <div class="cart-header">
+                <h2>Sua Cesta</h2>
+                <p>Monte seu café perfeito</p>
+            </div>
+            
+            <div class="cart-items" id="cartItemsContainer">
+                <div class="empty-cart">
+                    <p>Sua cesta está vazia</p>
+                    <small>Adicione cestas prontas ou itens avulsos</small>
+                </div>
+                <!-- Itens adicionados aparecerão aqui -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="cart-total-row">
+                    <span>Taxa de Entrega</span>
+                    <span style="color: #4CAF50">Grátis</span>
+                </div>
+                <div class="cart-total-row total-price">
+                    <span>Total</span>
+                    <span id="totalPrice">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout whatsapp-btn" id="btnCheckout">Pedir pelo WhatsApp 💬</button>
+            </div>
+        </aside>
+
+        <!-- LADO DIREITO: Cardápio / Catálogo Principal -->
+        <main class="menu-content">
+            
+            <!-- Agrupando para descer (sticky) junto ao rolar a tela -->
+            <div class="sticky-header-container">
+                <header class="hero-section">
+                    <h1 class="huge-title">Café da Manhã</h1>
+                    
+                    <div class="search-box">
+                        <input type="text" id="searchInput" placeholder="Buscar cestas, pães, bebidas...">
+                        <div class="search-icon">🔍</div>
+                    </div>
+                </header>
+
+                <nav class="category-nav">
+                    <button class="cat-btn active" onclick="document.getElementById('prontas').scrollIntoView({behavior: 'smooth'})">Cestas Prontas</button>
+                    <button class="cat-btn" onclick="document.getElementById('padaria').scrollIntoView({behavior: 'smooth'})">Padaria</button>
+                    <button class="cat-btn" onclick="document.getElementById('bebidas').scrollIntoView({behavior: 'smooth'})">Bebidas</button>
+                </nav>
+            </div>
+
+            <div class="menu-sections">
+                <!-- Seção 1: Cestas Prontas -->
+                <section class="menu-section" id="prontas">
+                    <h2 class="section-title">Cestas Prontas</h2>
+                    <p class="section-desc">Opções completas sugeridas para você.</p>
+                    <div class="menu-grid" id="gridProntas">
+                        <!-- Itens renderizados via JS -->
+                    </div>
+                </section>
+
+                <!-- Seção 2: Padaria e Avulsos -->
+                <section class="menu-section" id="padaria">
+                    <h2 class="section-title">Padaria (Monte a sua do zero)</h2>
+                    <p class="section-desc">Pães fresquinhos, doces e salgados.</p>
+                    <div class="menu-grid" id="gridPadaria">
+                        <!-- Itens renderizados via JS -->
+                    </div>
+                </section>
+
+                <!-- Seção 3: Bebidas -->
+                <section class="menu-section" id="bebidas">
+                    <h2 class="section-title">Bebidas Frescas e Quentes</h2>
+                    <p class="section-desc">Acompanhamentos essenciais.</p>
+                    <div class="menu-grid" id="gridBebidas">
+                        <!-- Itens renderizados via JS -->
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="main-footer">
+                <p>Delivery funcionando a todo vapor pelas manhãs.</p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

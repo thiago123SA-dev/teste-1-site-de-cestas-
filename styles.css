@@ -1,0 +1,381 @@
+:root {
+    /* Paleta Pastel Aconchegante MANTIDA */
+    --bg-color: #FAF4EF; 
+    --sidebar-bg: #FFFFFF;
+    --text-primary: #4A3B32; 
+    --text-secondary: #8B7355; 
+    --accent-color: #E69D81; /* Laranja Pêssego */
+    --accent-hover: #D8896D;
+    --border-radius: 12px;
+    --border-color: #E2D5CC;
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: 'Nunito', sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Tiramos barra de rolagem principal, aplicamos internamente */
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* ============================
+    ABA ESQUERDA (CARRINHO) 
+=============================*/
+.cart-sidebar {
+    width: 340px;
+    background-color: var(--sidebar-bg);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    z-index: 10;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.02);
+}
+
+.cart-header {
+    padding: 24px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cart-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.cart-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.cart-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px;
+}
+
+.empty-cart {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px 0;
+}
+
+.cart-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background: #FAFAFA;
+}
+
+.cart-total-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.cart-total-row.total-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.btn-checkout {
+    width: 100%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: var(--accent-hover);
+}
+
+/* WhatsApp Button Overlay */
+.whatsapp-btn {
+    background-color: #25D366; 
+}
+.whatsapp-btn:hover {
+    background-color: #1ebd5a;
+}
+
+/* Item dentro do carrinho */
+.cart-item-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px dashed var(--border-color);
+}
+.cart-item-info h4 { font-size: 0.95rem; }
+.cart-item-info p { 
+    color: var(--text-secondary); 
+    font-size: 0.85rem; 
+    font-weight: 600; 
+}
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-qty {
+    background: #F0E6DD;
+    border: none;
+    width: 26px;
+    height: 26px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+
+/* ============================
+    LADO DIREITO (CARDÁPIO) 
+=============================*/
+.menu-content {
+    flex: 1;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    padding: 30px 40px;
+}
+
+.hero-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.huge-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: var(--accent-color);
+    letter-spacing: -1px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 5px 15px;
+    border-radius: 30px;
+    width: 300px;
+    border: 1px solid var(--border-color);
+}
+
+.search-box input {
+    border: none;
+    background: none;
+    padding: 10px;
+    outline: none;
+    width: 100%;
+}
+
+/* Area Fixa ao rolar */
+.sticky-header-container {
+    position: sticky;
+    top: -20px; /* Um leve top negativo para ficar fluido e compensar padding se quiser */
+    background: var(--bg-color);
+    z-index: 5;
+    padding-top: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid var(--border-color); /* Separador sutil */
+    padding-bottom: 10px;
+}
+
+.category-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px; /* afastando um pouco da barra de pesquisa */
+}
+
+.cat-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.cat-btn:hover { border-color: var(--accent-color); }
+.cat-btn.active {
+    background: var(--text-primary);
+    color: white;
+    border-color: var(--text-primary);
+}
+
+/* Sections & Grid */
+.menu-section {
+    margin-bottom: 50px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.section-desc {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 20px;
+}
+
+/* iFood Style Item Card */
+.menu-card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+}
+
+/* Compact Card (Lista da Padaria) */
+.compact-card {
+    padding: 10px 15px;
+}
+.compact-card .menu-card-img-wrapper {
+    width: 60px;
+    height: 60px;
+}
+.compact-card .menu-card-title {
+    font-size: 1rem;
+}
+.compact-card .menu-card-desc {
+    display: none; /* Oculta a descrição longa p/ estilo de lista */
+}
+.compact-card .btn-add {
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+    bottom: -5px;
+    right: -5px;
+}
+#gridPadaria {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 15px;
+}
+
+.menu-card-text {
+    flex: 1;
+}
+
+.menu-card-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin-bottom: 4px;
+}
+
+.menu-card-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.menu-card-price {
+    font-weight: 800;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.menu-card-img-wrapper {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    flex-shrink: 0;
+}
+
+.menu-card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.btn-add {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    background: var(--text-primary);
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-add:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+}
+
+.main-footer {
+    text-align: center;
+    padding: 30px;
+    color: var(--text-secondary);
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade Básica */
+@media (max-width: 900px) {
+    .app-container { flex-direction: column; }
+    .cart-sidebar { width: 100%; border-right: none; border-bottom: 1px solid #ccc; height: 35vh; }
+    .menu-content { padding: 20px; }
+}
